@@ -1,0 +1,44 @@
+{
+ "last_updated": "2026-11-06T18:48:08Z",
+ "indicators": [
+  {
+   "id": "selic",
+   "name": {
+    "en": "Selic target rate",
+    "pt": "Meta da taxa Selic"
+   },
+   "unit": "% p.a.",
+   "frequency": "irregular",
+   "latest": {
+    "date": "2026-11-06",
+    "value": 13.75
+   }
+  },
+  {
+   "id": "ipca",
+   "name": {
+    "en": "IPCA inflation (monthly)",
+    "pt": "IPCA (variação mensal)"
+   },
+   "unit": "% m/m",
+   "frequency": "monthly",
+   "latest": {
+    "date": "2026-09-01",
+    "value": 0.82
+   }
+  },
+  {
+   "id": "fx_reserves",
+   "name": {
+    "en": "International reserves",
+    "pt": "Reservas internacionais"
+   },
+   "unit": "USD million",
+   "frequency": "daily",
+   "latest": {
+    "date": "2026-11-05",
+    "value": 367865.0
+   }
+  }
+ ]
+}

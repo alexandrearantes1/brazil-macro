@@ -1,0 +1,47 @@
+# Registry of indicators. Keys are stable IDs (also the output filenames).
+# VERIFY all IDs against the official catalogs before trusting the output.
+
+selic:
+  name: { en: "Selic target rate", pt: "Meta da taxa Selic" }
+  source: bcb_sgs
+  series_id: 432
+  unit: "% p.a."
+  frequency: irregular      # changes only at Copom meetings; unchanged days are collapsed
+  start_year: 2010
+
+ipca:
+  name: { en: "IPCA inflation (monthly)", pt: "IPCA (variação mensal)" }
+  source: bcb_sgs
+  series_id: 433
+  unit: "% m/m"
+  frequency: monthly
+  start_year: 2010
+
+fx_reserves:
+  name: { en: "International reserves", pt: "Reservas internacionais" }
+  source: bcb_sgs
+  series_id: 13621          # daily, USD million (liquidity concept)
+  unit: "USD million"
+  frequency: daily
+  start_year: 2010
+
+unemployment:
+  name: { en: "Unemployment rate", pt: "Taxa de desocupação" }
+  source: ibge_sidra
+  table: 4099               # PNAD Contínua, quarterly moving average
+  variable: 4099
+  period_format: month      # periods look like 202403 (quarter ending March)
+  unit: "%"
+  frequency: monthly
+  periods: 180              # how many latest periods to request
+
+gdp_growth:
+  name: { en: "GDP growth (QoQ, s.a.)", pt: "PIB (var. trimestral, dessaz.)" }
+  source: ibge_sidra
+  table: 5932               # Quarterly national accounts - VERIFY table/variable
+  variable: 6564            # VERIFY: QoQ change, seasonally adjusted
+  classification: "11255[90707]"   # VERIFY: GDP at market prices
+  period_format: quarter    # periods look like 202401 (01 = Q1)
+  unit: "% q/q"
+  frequency: quarterly
+  periods: 100
