@@ -1,0 +1,84 @@
+name: Publish dashboard and refresh data
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "17 12 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pipeline/pyproject.toml
+
+      - name: Install pipeline
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: python -m pip install -e ./pipeline
+
+      - name: Refresh indicator data
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          set +e
+          python -m macro_pipeline.main
+          result=$?
+          if [ "$result" -gt 1 ]; then
+            exit "$result"
+          fi
+
+      - name: Commit refreshed data
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/index.json data/indicators/
+          if git diff --cached --quiet; then
+            echo "No indicator data changes to commit."
+          else
+            git commit -m "Update indicator data"
+            git push origin HEAD:main
+          fi
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Assemble static site
+        run: |
+          mkdir -p _site/data/indicators
+          cp site/index.html site/app.js site/styles.css _site/
+          cp data/index.json _site/data/index.json
+          cp data/indicators/*.json _site/data/indicators/
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,5 +1,5 @@
 {
- "last_updated": "2026-11-06T18:48:08Z",
+ "last_updated": "2026-11-06T23:50:16Z",
  "indicators": [
   {
    "id": "selic",
@@ -38,6 +38,84 @@
    "latest": {
     "date": "2026-11-05",
     "value": 367865.0
+   }
+  },
+  {
+   "id": "unemployment",
+   "name": {
+    "en": "Unemployment rate",
+    "pt": "Taxa de desocupação"
+   },
+   "unit": "%",
+   "frequency": "monthly",
+   "latest": {
+    "date": "2026-04-01",
+    "value": 5.4
+   }
+  },
+  {
+   "id": "gdp_growth",
+   "name": {
+    "en": "GDP growth (QoQ, s.a.)",
+    "pt": "PIB (var. trimestral, dessaz.)"
+   },
+   "unit": "% q/q",
+   "frequency": "quarterly",
+   "latest": {
+    "date": "2026-04-01",
+    "value": 0.5
+   }
+  },
+  {
+   "id": "real_gdp_per_capita",
+   "name": {
+    "en": "Real GDP per capita growth",
+    "pt": "Variação real do PIB per capita"
+   },
+   "unit": "% y/y",
+   "frequency": "annual",
+   "latest": {
+    "date": "2024-01-01",
+    "value": 3.0
+   }
+  },
+  {
+   "id": "real_income",
+   "name": {
+    "en": "Real monthly earnings (all jobs)",
+    "pt": "Rendimento real mensal (todos os trabalhos)"
+   },
+   "unit": "BRL/month (real)",
+   "frequency": "quarterly",
+   "latest": {
+    "date": "2026-04-01",
+    "value": 3738.0
+   }
+  },
+  {
+   "id": "primary_balance",
+   "name": {
+    "en": "Primary balance (% GDP, 12m; deficit positive)",
+    "pt": "Resultado primário (% PIB, 12 meses)"
+   },
+   "unit": "% GDP (12m)",
+   "frequency": "monthly",
+   "latest": {
+    "date": "2026-09-01",
+    "value": 0.52
+   }
+  },
+  {
+   "id": "gross_debt",
+   "name": {
+    "en": "Gross general government debt",
+    "pt": "Dívida bruta do governo geral"
+   },
+   "unit": "% GDP",
+   "frequency": "monthly",
+   "latest": {
+    "date": "2026-09-01",
+    "value": 82.93
    }
   }
  ]

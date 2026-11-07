@@ -6,8 +6,8 @@ selic:
   source: bcb_sgs
   series_id: 432
   unit: "% p.a."
-  frequency: irregular      # changes only at Copom meetings; unchanged days are collapsed
-  start_year: 2010
+  frequency: irregular # changes only at Copom meetings; unchanged days are collapsed
+  start_year: 1990
 
 ipca:
   name: { en: "IPCA inflation (monthly)", pt: "IPCA (variação mensal)" }
@@ -15,33 +15,79 @@ ipca:
   series_id: 433
   unit: "% m/m"
   frequency: monthly
-  start_year: 2010
+  start_year: 1990
 
 fx_reserves:
   name: { en: "International reserves", pt: "Reservas internacionais" }
   source: bcb_sgs
-  series_id: 13621          # daily, USD million (liquidity concept)
+  series_id: 13621 # daily, USD million (liquidity concept)
   unit: "USD million"
   frequency: daily
-  start_year: 2010
+  start_year: 1990
 
 unemployment:
   name: { en: "Unemployment rate", pt: "Taxa de desocupação" }
   source: ibge_sidra
-  table: 4099               # PNAD Contínua, quarterly moving average
+  table: 4099 # PNAD Contínua, quarterly moving average
   variable: 4099
-  period_format: month      # periods look like 202403 (quarter ending March)
+  period_format: quarter # SIDRA codes 01..04 identify calendar quarters
   unit: "%"
   frequency: monthly
-  periods: 180              # how many latest periods to request
+  periods: 500 # enough monthly periods to cover 1990 through the present
 
 gdp_growth:
   name: { en: "GDP growth (QoQ, s.a.)", pt: "PIB (var. trimestral, dessaz.)" }
   source: ibge_sidra
-  table: 5932               # Quarterly national accounts - VERIFY table/variable
-  variable: 6564            # VERIFY: QoQ change, seasonally adjusted
-  classification: "11255[90707]"   # VERIFY: GDP at market prices
-  period_format: quarter    # periods look like 202401 (01 = Q1)
+  table: 5932 # Quarterly national accounts - VERIFY table/variable
+  variable: 6564 # VERIFY: QoQ change, seasonally adjusted
+  classification: "11255[90707]" # VERIFY: GDP at market prices
+  period_format: quarter # periods look like 202401 (01 = Q1)
   unit: "% q/q"
   frequency: quarterly
+  periods: 200 # enough quarterly periods to cover 1990 through the present
+
+real_gdp_per_capita:
+  name:
+    { en: "Real GDP per capita growth", pt: "Variação real do PIB per capita" }
+  source: ibge_sidra
+  table: 6784 # IBGE annual national accounts
+  variable: 9814 # GDP per capita - volume growth
+  period_format: year
+  unit: "% y/y"
+  frequency: annual
   periods: 100
+
+real_income:
+  name:
+    {
+      en: "Real monthly earnings (all jobs)",
+      pt: "Rendimento real mensal (todos os trabalhos)",
+    }
+  source: ibge_sidra
+  table: 5436 # PNAD Contínua - real usual earnings
+  variable: 5933 # Average real monthly earnings, usual, all jobs
+  period_format: quarter
+  unit: "BRL/month (real)"
+  frequency: quarterly
+  periods: 500
+
+primary_balance:
+  name:
+    {
+      en: "Primary balance (% GDP, 12m; deficit positive)",
+      pt: "Resultado primário (% PIB, 12 meses)",
+    }
+  source: bcb_sgs
+  series_id: 5793 # Primary result, consolidated public sector, 12-month flow
+  unit: "% GDP (12m)"
+  frequency: monthly
+  start_year: 2002
+
+gross_debt:
+  name:
+    { en: "Gross general government debt", pt: "Dívida bruta do governo geral" }
+  source: bcb_sgs
+  series_id: 13762 # Gross debt of general government (% GDP)
+  unit: "% GDP"
+  frequency: monthly
+  start_year: 2006

@@ -28,6 +28,29 @@ def test_parse_ibge_skips_missing_and_maps_dates():
     assert len(df) == 3 and df.iloc[0]["date"] == pd.Timestamp("2024-01-01")
 
 
+def test_parse_ibge_legacy_response_and_quarter_codes():
+    payload = [
+        {"D3C": "Trimestre (Código)", "V": "Valor"},
+        {"D3C": "201201", "V": "8.0"},
+        {"D3C": "201202", "V": "..."},
+    ]
+    df = parse_agregados(payload, "quarter")
+    assert len(df) == 1
+    assert df.iloc[0]["date"] == pd.Timestamp("2012-01-01")
+    assert df.iloc[0]["value"] == 8.0
+
+
+def test_parse_ibge_legacy_annual_response():
+    payload = [
+        {"D3C": "Ano (Código)", "V": "Valor"},
+        {"D3C": "2023", "V": "2.5"},
+        {"D3C": "2024", "V": "3.0"},
+    ]
+    df = parse_agregados(payload, "year")
+    assert list(df["date"]) == [pd.Timestamp("2023-01-01"), pd.Timestamp("2024-01-01")]
+    assert list(df["value"]) == [2.5, 3.0]
+
+
 def test_ibge_quarter_format():
     payload = [{"resultados": [{"series": [{"serie": {"202402": "0.5"}}]}]}]
     df = parse_agregados(payload, "quarter")

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brazil Macro by Government Cycle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Brazil macro dashboard</p>
+          <h1>Brazilian economy, by government cycle</h1>
+        </div>
+        <div class="controls">
+          <label>
+            <span>Metric</span>
+            <select id="metricSelect">
+              <option value="avg">Average in term</option>
+              <option value="end">End of term</option>
+              <option value="change">Change during term</option>
+            </select>
+          </label>
+          <div class="view-control">
+            <span>Chart view</span>
+            <div class="chart-tabs" role="group" aria-label="Chart view">
+              <button type="button" data-chart-view="timeline" aria-pressed="true">Timeline</button>
+              <button type="button" data-chart-view="aligned" aria-pressed="false">Cycle panels</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main id="indicatorGroups" class="dashboard indicator-groups"></main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
