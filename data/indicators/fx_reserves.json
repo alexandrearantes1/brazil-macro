@@ -7,12 +7,12 @@
  "unit": "USD million",
  "frequency": "daily",
  "source": "Banco Central do Brasil (SGS 13621)",
- "last_updated": "2026-11-06T23:50:16Z",
+ "last_updated": "2026-11-09T22:19:18Z",
  "latest": {
-  "date": "2026-11-05",
-  "value": 367865.0,
-  "change": 504.0,
-  "yoy": 2.9540175198007335
+  "date": "2026-11-06",
+  "value": 367402.0,
+  "change": -463.0,
+  "yoy": 2.569242236857172
  },
  "series": [
   {
@@ -28318,6 +28318,10 @@
   {
    "date": "2026-11-05",
    "value": 367865.0
+  },
+  {
+   "date": "2026-11-06",
+   "value": 367402.0
   }
  ]
 }

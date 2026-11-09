@@ -7,7 +7,7 @@
  "unit": "% q/q",
  "frequency": "quarterly",
  "source": "IBGE (SIDRA 5932/6564)",
- "last_updated": "2026-11-06T23:50:16Z",
+ "last_updated": "2026-11-09T22:19:18Z",
  "latest": {
   "date": "2026-04-01",
   "value": 0.5,

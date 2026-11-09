@@ -7,9 +7,9 @@
  "unit": "% p.a.",
  "frequency": "irregular",
  "source": "Banco Central do Brasil (SGS 432)",
- "last_updated": "2026-11-06T23:50:16Z",
+ "last_updated": "2026-11-09T22:19:18Z",
  "latest": {
-  "date": "2026-11-06",
+  "date": "2026-11-09",
   "value": 13.75,
   "change": 0.0,
   "yoy": null
@@ -664,7 +664,7 @@
    "value": 13.75
   },
   {
-   "date": "2026-11-06",
+   "date": "2026-11-09",
    "value": 13.75
   }
  ]

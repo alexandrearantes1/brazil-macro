@@ -1,5 +1,5 @@
 {
- "last_updated": "2026-11-06T23:50:16Z",
+ "last_updated": "2026-11-09T22:19:18Z",
  "indicators": [
   {
    "id": "selic",
@@ -10,7 +10,7 @@
    "unit": "% p.a.",
    "frequency": "irregular",
    "latest": {
-    "date": "2026-11-06",
+    "date": "2026-11-09",
     "value": 13.75
    }
   },
@@ -36,8 +36,8 @@
    "unit": "USD million",
    "frequency": "daily",
    "latest": {
-    "date": "2026-11-05",
-    "value": 367865.0
+    "date": "2026-11-06",
+    "value": 367402.0
    }
   },
   {
