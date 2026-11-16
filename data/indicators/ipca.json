@@ -7,12 +7,12 @@
  "unit": "% m/m",
  "frequency": "monthly",
  "source": "Banco Central do Brasil (SGS 433)",
- "last_updated": "2026-11-09T22:19:18Z",
+ "last_updated": "2026-11-16T21:59:14Z",
  "latest": {
-  "date": "2026-09-01",
-  "value": 0.82,
-  "change": 1.14,
-  "yoy": 70.83333333333333
+  "date": "2026-10-01",
+  "value": 0.14,
+  "change": -0.6799999999999999,
+  "yoy": 55.55555555555558
  },
  "series": [
   {
@@ -1778,6 +1778,10 @@
   {
    "date": "2026-09-01",
    "value": 0.82
+  },
+  {
+   "date": "2026-10-01",
+   "value": 0.14
   }
  ]
 }
