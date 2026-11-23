@@ -1,5 +1,5 @@
 {
- "last_updated": "2026-11-16T21:59:14Z",
+ "last_updated": "2026-11-23T23:50:47Z",
  "indicators": [
   {
    "id": "selic",
@@ -10,7 +10,7 @@
    "unit": "% p.a.",
    "frequency": "irregular",
    "latest": {
-    "date": "2026-11-16",
+    "date": "2026-11-23",
     "value": 13.75
    }
   },
@@ -36,8 +36,8 @@
    "unit": "USD million",
    "frequency": "daily",
    "latest": {
-    "date": "2026-11-13",
-    "value": 364006.0
+    "date": "2026-11-19",
+    "value": 363058.0
    }
   },
   {
@@ -49,8 +49,8 @@
    "unit": "%",
    "frequency": "monthly",
    "latest": {
-    "date": "2026-04-01",
-    "value": 5.4
+    "date": "2026-07-01",
+    "value": 5.2
    }
   },
   {
@@ -88,8 +88,8 @@
    "unit": "BRL/month (real)",
    "frequency": "quarterly",
    "latest": {
-    "date": "2026-04-01",
-    "value": 3738.0
+    "date": "2026-07-01",
+    "value": 3790.0
    }
   },
   {
